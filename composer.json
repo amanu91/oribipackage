@@ -20,5 +20,5 @@
     "psr-4": {
       "Oribi\\Analytics\\": ""
     }
-  },"minimum-stability": "dev"
+  },"minimum-stability": "stable"
 }
