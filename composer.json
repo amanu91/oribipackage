@@ -1,16 +1,11 @@
 {
   "name": "oribi/module-analytics",
   "description": "Oribi Analytics",
-  "version": "0.0.2",
-  "license": [
-    "OSL-3.0",
-    "AFL-3.0"
-  ],
+  "version": "2.0.0",
   "authors": [
     {
       "name": "Oribi",
       "email": "Oribi@support.com",
-      "homepage": "https://oribi.io/",
       "role": "Leader"
     }
   ],
@@ -20,14 +15,6 @@
     ],
     "psr-4": {
       "Oribi\\Analytics\\": ""
-    },
-    "version": "2.3.1",
-    "minimum-stability": "dev",
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://github.com/amanu91/oribipackage/"
-        }
-    ]
+    }
   }
 }
