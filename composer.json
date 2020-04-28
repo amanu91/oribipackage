@@ -1,11 +1,22 @@
 {
   "name": "oribi/module-analytics",
   "description": "Oribi Analytics",
-  "version": "2.0.0",
+   "version": "0.0.2",
+  "require": {
+    "php": "~5.5.0|~5.6.0|~7.0.0",
+    "mageplaza/core-m2": "dev-master"
+  },
+  "type": "magento2-module",
+  "version": "1.1.1",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
   "authors": [
     {
       "name": "Oribi",
-      "email": "Oribi@support.com",
+      "email": "Oribi",
+      "homepage": "https://oribi.io/",
       "role": "Leader"
     }
   ],
