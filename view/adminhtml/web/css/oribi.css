@@ -1,0 +1,4 @@
+#menu-oribi-analytics-oribi > a:before {
+    content: url('oribi-logo.png');
+    width: 69px;
+}

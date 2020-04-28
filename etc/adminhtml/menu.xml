@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+
+    <menu>
+
+        <add id="Oribi_Analytics::oribi" title="Oribi" module="Oribi_Analytics" sortOrder="55" resource="Oribi_Analytics::oribi"/>
+
+        <add id="Oribi_Analytics::events" title="Manage Events" module="Oribi_Analytics" sortOrder="10" action="analytics/oribievents/index" resource="Oribi_Analytics::events" parent="Oribi_Analytics::oribi"/>
+
+        <add id="Oribi_Analytics::configuration" title="Configuration" module="Oribi_Analytics" sortOrder="99" parent="Oribi_Analytics::events" action="admin/system_config/edit/section/oribi" resource="Oribi_Analytics::oribi_configuration"/>
+
+    </menu>
+
+</config>
+

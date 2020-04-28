@@ -1,0 +1,71 @@
+<?php
+$enable = $block->checkModule();
+
+$token = $block->isToken();
+
+?>
+
+<?php
+if($enable){
+
+ 	if($token){ ?>
+
+	<script type="application/javascript">
+	  (function(b,o,n,g,s,r,c){if(b[s])return;b[s]={};b[s].scriptToken="<?php echo $token; ?>";b[s].callsQueue=[];b[s].api=function(){b[s].callsQueue.push(arguments);};r=o.createElement(n);c=o.getElementsByTagName(n)[0];r.async=1;r.src=g;r.id=s+n;c.parentNode.insertBefore(r,c);})(window,document,"script","//cdn.oribi.io/Xzc5MzQ5MzExMA/oribi.js","ORIBI");
+	</script>
+
+     <?php } else { echo $block->headScript();  } ?>
+
+<?php
+		$customEventCollection = $block->getEventCollection();
+	    $action = $block->getActions();
+		$collectionEvent = $customEventCollection->getData();
+		$eventInfo = '';
+		foreach ($collectionEvent as $key => $value) {
+		
+		 if($value['event_page'] == "home-page" && $action == "cms_index_index"){
+
+		 		$eventInfo .= "ORIBI.api('track', '".$value['slug']."');";
+		 		echo "<br>";
+
+		  }
+		  if($value['event_page'] == "product-view" && $action == "atalog_product_view"){
+
+		 		$eventInfo .= "ORIBI.api('track', '".$value['slug']."');";
+		 		echo "<br>";
+
+		  }
+		  if($value['event_page'] == "cat-page" && $action == "catalog_category_view"){
+
+		 		$eventInfo .= "ORIBI.api('track', '".$value['slug']."');";
+		 		echo "<br>";
+
+		  }
+		  if($value['event_page'] == "checkout" && $action == "checkout_index_index"){
+
+		 		$eventInfo .= "ORIBI.api('track', '".$value['slug']."');";
+		 		echo "<br>";
+
+		  }
+		  if($value['event_page'] == "cart-page" && $action == "checkout_cart_index"){
+
+		 		$eventInfo .= "ORIBI.api('track', '".$value['slug']."');";
+		 		echo "<br>";
+
+		  }
+		}
+?>
+
+<script type="text/javascript">
+require([
+    'jquery'
+	], function ($) {
+    $(document).ready(function(){
+      
+       		<?php echo $eventInfo; ?>
+       });
+    });
+ 
+</script>
+
+<?php } ?>

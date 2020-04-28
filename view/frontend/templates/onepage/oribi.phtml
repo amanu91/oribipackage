@@ -1,0 +1,69 @@
+  <?php 
+  if($block->checkModule()) {
+
+  	$order = $block->getOrder();
+	$totalPrice = $order->getGrandTotal();
+	$orderItems = $order->getAllItems();
+	$product = [];
+	$i =0;
+	$getTrackLists = $block->trackLists();
+	$convertTrackListToArr = explode(',', $getTrackLists);
+	$currentCurrencyCode = $block->currentCurrencyCode();
+	foreach ($orderItems as $key => $item) {
+		if(in_array(10, $convertTrackListToArr)){
+		  	if(in_array(9, $convertTrackListToArr)){
+			  $product[$i]['name'] = $item->getName();
+			}
+			if(in_array(8, $convertTrackListToArr)){
+			  $product[$i]['id'] = $item->getProductId();
+		    }
+			if(in_array(2, $convertTrackListToArr)){
+				$product[$i]['price'] = $item->getPrice();
+			}
+			if(in_array(3, $convertTrackListToArr)){
+	    		$product[$i]['categories'] = [$block->getProductCategories($item->getProductId())];
+			}
+			if(in_array(7, $convertTrackListToArr)){
+			  $product[$i]['qty'] = $item->getQtyOrdered();
+			}
+		}
+	    $i++;
+	}
+	$products = json_encode($product);
+	if(in_array(6, $convertTrackListToArr)){
+     	$shippingPrice = $order->getShippingAmount();
+	}else{
+		$shippingPrice = 0;
+	}
+	if(in_array(5, $convertTrackListToArr)){
+		$shippingTax = $order->getTaxAmount();
+
+	}else{
+		$shippingTax = 0;
+	}
+	
+   ?>
+	<script type="text/javascript">
+		require([
+	"jquery"
+	], function($){
+		$(document).ready(function() {
+
+			var price = { totalPrice: 1.5 };
+			var item = {
+
+	    	   totalPrice: <?php echo $totalPrice; ?>,
+			   orderId: <?php echo $block->getRealOrderId();?>,
+	           currency: <?php echo  $currentCurrencyCode;?>,
+			   shippingPrice: <?php echo $shippingPrice; ?>,
+			   taxPrice: <?php echo $shippingTax; ?>,
+			   products: <?php echo $products; ?>
+
+			};
+			ORIBI.api('trackPurchase', item);
+
+		});
+	});
+
+	</script>
+<?php } ?>

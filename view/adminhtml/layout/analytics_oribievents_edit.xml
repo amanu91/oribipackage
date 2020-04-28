@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+     <update handle="editor"/>
+    <body>
+	   <referenceContainer name="content">
+            <block class="Oribi\Analytics\Block\Adminhtml\Oribi\Edit" name="analytics_oribi_edit"/>
+        </referenceContainer>
+		 <referenceContainer name="left">
+            <block class="Oribi\Analytics\Block\Adminhtml\Oribi\Edit\Tabs" name="analytics_oribi_edit_tabs">
+				<block class="Oribi\Analytics\Block\Adminhtml\Oribi\Edit\Tab\Oribi" name="analytics_oribi_edit_tab_oribi"/>
+				 <action method="addTab">
+                    <argument name="name" xsi:type="string">oribi_event</argument>
+                    <argument name="block" xsi:type="string">analytics_oribi_edit_tab_oribi</argument>
+                </action>
+				<!--CedAddTab-->
+			</block>
+        </referenceContainer>
+    </body>
+</page>
