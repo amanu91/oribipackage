@@ -26,6 +26,14 @@
     ],
     "psr-4": {
       "Oribi\\Analytics\\": ""
-    }
+    },
+    "version": "2.3.1",
+    "minimum-stability": "stable",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    ]
   }
 }
