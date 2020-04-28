@@ -24,7 +24,7 @@
       "Oribi\\Analytics\\": ""
     },
     "version": "2.3.1",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "repositories": [
         {
             "type": "composer",
